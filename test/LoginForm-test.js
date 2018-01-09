@@ -18,13 +18,13 @@ describe('<LoginForm />', () => {
   describe('Saving input values in state', () => {
     it('should save the username in state when the input changes', () => {
       const wrapper = shallow(<LoginForm />);
-      wrapper.find('#test-username').simulate('change', { target: { value: 'johndoe' } });
+      wrapper.find('#test-username').simulate('change', { target: { value: 'johndoe', id: "test-username" } });
       expect(isValueInState(wrapper.state(), 'johndoe'), 'The username input value is not being saved in the state').to.be.true;
     });
 
     it('should save the password in state when the input changes', () => {
       const wrapper = shallow(<LoginForm />);
-      wrapper.find('#test-password').simulate('change', { target: { value: 'supersecret' } });
+      wrapper.find('#test-password').simulate('change', { target: { value: 'supersecret', id: "test-password" } });
       expect(isValueInState(wrapper.state(), 'supersecret'), 'The password input value is not being saved in the state').to.be.true;
     });
   });
